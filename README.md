@@ -23,6 +23,22 @@ npm run build             # проверка типов + сборка в dist/
 npm run preview           # локальный просмотр dist/
 ```
 
+## Публикация
+
+Приложение публикуется на GitHub Pages: https://objnamegit.github.io/hotel-service/
+
+Workflow `.github/workflows/deploy.yml` на каждый push в `main` прогоняет lint, typecheck, unit- и e2e-тесты,
+собирает приложение с `BASE_PATH=/<имя-репозитория>/` и публикует `dist/`. Прямые ссылки вроде `/market` работают
+через `404.html` — копию `index.html`. Для первого запуска в настройках репозитория нужно выбрать
+**Settings → Pages → Source: GitHub Actions**.
+
+Локально проверить сборку в подпапке:
+
+```bash
+BASE_PATH=/hotel-service/ npm run build
+BASE_PATH=/hotel-service/ npm run preview   # http://localhost:4173/hotel-service/
+```
+
 ## Демо-доступы
 
 | Роль          | Email               | Пароль    | После входа      |
